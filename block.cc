@@ -149,9 +149,8 @@ void Block::print_data(std::string path){
 
 void Block::read_file(std::string filename) {
     std::ifstream file;
-    //std::ofstream output("F://1.New//Corsika//test_out.txt");
     float sizeBuff;
-    file.open(filename.c_str(), std::fstream::binary | std::fstream::out); //p500TeVtest_1
+    file.open(filename.c_str(), std::fstream::binary | std::fstream::out); 
 
     int j = 0;
     if (file) {
@@ -179,9 +178,8 @@ void Block::read_file(std::string filename) {
 
 void Block::read_event(std::string filename, int event) {
     std::ifstream file;
-    //std::ofstream output("F://1.New//Corsika//test_out.txt");
     float sizeBuff;
-    file.open(filename.c_str(), std::fstream::binary | std::fstream::out);  /*"F://1.New//Corsika//p500TeVtest_1"*/
+    file.open(filename.c_str(), std::fstream::binary | std::fstream::out);  
 
     int j = 0;
     //int num_of_event{};
@@ -246,8 +244,6 @@ void Block::read_event_comp(std::string filename, int event) {
         if (parsedRow[0] == "event") {
             ++num_ev;
             if (num_ev > event) break;
-            //std::cout << parsedRow[0] << ' ' << parsedRow[1] << ' ' << parsedRow[2] << ' ' << parsedRow[3] << ' ' << parsedRow[4] << ' ' << parsedRow[5] << '\n';
-            //if (params.size() != 0) params.clear();
             if (std::atoi(parsedRow[1].c_str()) == event && num_ev == event ) {
                 params.insert(params.end(), { /*std::atof(parsedRow[2].c_str()),*/ std::atof(parsedRow[3].c_str()), std::atof(parsedRow[4].c_str()),
                               std::atof(parsedRow[5].c_str()), std::atof(parsedRow[6].c_str()) });
@@ -280,7 +276,7 @@ void Block::conv_to_format(std::vector<float> bar, std::string filename, int *Ns
     int part_id{}; // Corsika info
     double x_core{}, y_core{}, E_0{}, theta{}, phi{}; // Corsika info
 
-    int det_Num{}, trigged_det{}, M1{}, M2{}, M{}; // N_thr - номер броска n-го ливня
+    int det_Num{}, trigged_det{}, M1{}, M2{}, M{}; // N_thr - Г­Г®Г¬ГҐГ° ГЎГ°Г®Г±ГЄГ  n-ГЈГ® Г«ГЁГўГ­Гї
     double temp{}, temp_n{}, temp_mu{}, Sum_ed{}; //, mip = 450; // keV ??
     int Num_n{}, Num_mu{};
     for (int k = 0; k < bar.size(); k += 5) {
